@@ -29,14 +29,14 @@
         <ion-button color="success" @click="sendMessage">
           <ion-icon :icon="send"></ion-icon>
           &nbsp; Send
-          </ion-button>
+        </ion-button>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { send, call, chatboxes } from "ionicons/icons"
+import { send, call, chatboxes } from "ionicons/icons";
 import {
   IonContent,
   IonHeader,
@@ -69,19 +69,19 @@ export default defineComponent({
   },
   data() {
     return {
-      phoneNumber:"",
-      message:"",
+      phoneNumber: "",
+      message: "",
       send,
       call,
-      chatboxes
+      chatboxes,
     };
   },
   methods: {
     sendMessage() {
-      const url = `https://wa.me/+91${this.phoneNumber}?text=${this.message}`
-      window.location.href = url
-    }
-  }
+      const url = `https://wa.me/+91${this.phoneNumber}?text=${this.message}`;
+      window.location.href = url;
+    },
+  },
 });
 </script>
 
@@ -113,5 +113,4 @@ export default defineComponent({
 #container a {
   text-decoration: none;
 }
-
 </style>
