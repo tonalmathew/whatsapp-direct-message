@@ -15,20 +15,20 @@
 
       <div id="container">
         <ion-item>
-          <!-- <ion-icon name="call" slot="start"></ion-icon> -->
+          <ion-icon :icon="call" slot="start"></ion-icon>
           <ion-label position="floating">Enter Phone Number</ion-label>
           <ion-input v-model="phoneNumber" />
         </ion-item>
         <br />
         <ion-item>
-          <!-- <ion-icon slot="start" name="chatbox-ellipses-outline"></ion-icon> -->
+          <ion-icon slot="start" :icon="chatboxes"></ion-icon>
           <ion-label position="floating">Enter Message</ion-label>
           <ion-textarea v-model="message" />
         </ion-item>
         <br />
         <ion-button color="success" @click="sendMessage">
-          <!-- <ion-icon name="send"></ion-icon> -->
-          Send
+          <ion-icon :icon="send"></ion-icon>
+          &nbsp; Send
           </ion-button>
       </div>
     </ion-content>
@@ -36,6 +36,7 @@
 </template>
 
 <script lang="ts">
+import { send, call, chatboxes } from "ionicons/icons"
 import {
   IonContent,
   IonHeader,
@@ -47,7 +48,7 @@ import {
   IonInput,
   IonTextarea,
   IonButton,
-  // IonIcon,
+  IonIcon,
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 
@@ -64,12 +65,15 @@ export default defineComponent({
     IonInput,
     IonTextarea,
     IonButton,
-    // IonIcon,
+    IonIcon,
   },
   data() {
     return {
       phoneNumber:"",
-      message:""
+      message:"",
+      send,
+      call,
+      chatboxes
     };
   },
   methods: {
