@@ -1,0 +1,7 @@
+{
+  "name": "whatsapp-message",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
