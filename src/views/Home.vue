@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar color="success">
-        <ion-title><b>Whatsapp Direct Message</b></ion-title>
+        <ion-title>Whatsapp Direct Message</ion-title>
       </ion-toolbar>
     </ion-header>
 
