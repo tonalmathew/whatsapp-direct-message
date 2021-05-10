@@ -36,6 +36,8 @@
 </template>
 
 <script lang="ts">
+import { Plugins } from '@capacitor/core';
+const { App } = Plugins;
 import { send, call, chatboxes } from "ionicons/icons";
 import {
   IonContent,
@@ -49,6 +51,8 @@ import {
   IonTextarea,
   IonButton,
   IonIcon,
+  useBackButton,
+  useIonRouter
 } from "@ionic/vue";
 import { defineComponent } from "vue";
 
@@ -67,6 +71,14 @@ export default defineComponent({
     IonButton,
     IonIcon,
   },
+  setup() {
+    const ionRouter = useIonRouter();
+    useBackButton(-1, () => {
+      if (!ionRouter.canGoBack()) {
+        App.exitApp();
+      }
+    });
+  },
   data() {
     return {
       phoneNumber: "",
@@ -80,6 +92,8 @@ export default defineComponent({
     sendMessage() {
       const url = `https://wa.me/+91${this.phoneNumber}?text=${this.message}`;
       window.location.href = url;
+      this.phoneNumber="";
+      this.message="";
     },
   },
 });
